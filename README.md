@@ -34,7 +34,8 @@ const element = React.createElement(
   {className: 'greeting'},
   'Hello, world!'
 );
----------------------------------------------
+
+
 JSX의 역할
 내부적으로 xml/html 코드를 자바스크립트로 변환한다
 react가 createElement함수를 사용하여 자동으로 자바스크립토로 변환
