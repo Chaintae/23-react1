@@ -24,9 +24,9 @@ Babel은 JSX를 React.createElement() 호출로 컴파일한다.
 
 아래 두 예시는 동일하다.
 const element = (
-  <h1 className="greeting">
+  h1 className="greeting">
     Hello, world!
-  </h1>
+  /h1
 );
 
 const element = React.createElement(
