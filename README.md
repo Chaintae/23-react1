@@ -24,8 +24,16 @@
 ### 제어 컴포넌트
 * 사용자가 입력한 값에 접근하고 제어할 수 있도록 해주는 컴포넌트
 
-##12장
-
+## 12장
+### Shared State
+공유된 state를 의미
+```js
+function BoilingVerdict(props){
+    if (props.celsius >=100){
+      return <p> 물 끓음 </p>
+    }
+    return <p> 안끓음 </p>
+  }
 
 # 8주차 04-27
 ## 이벤트 처리하기
