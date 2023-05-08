@@ -34,7 +34,7 @@ function BoilingVerdict(props){
     }
     return <p> 안끓음 </p>
   }
-
+```
 # 8주차 04-27
 ## 이벤트 처리하기
 ### DOM, React
