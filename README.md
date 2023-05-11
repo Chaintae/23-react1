@@ -1,5 +1,108 @@
 # 201930331 차인태
 # 23-React1
+# 10주차 05-11
+## 12장
+### 12장 코드
+```js
+import React, { useState } from "react";
+import TemperatureInput from "./TemperatureInput";
+
+function BoilingVerdict(props) {
+    if (props.celsius >= 100) {
+        return <p>물이 끓습니다.</p>;
+    }
+    return <p>물이 끓지 않습니다.</p>;
+}
+
+function toCelsius(fahrenheit) {
+    return ((fahrenheit - 32) * 5) / 9;
+}
+
+function toFahrenheit(celsius) {
+    return (celsius * 9) / 5 + 32;
+}
+
+function tryConvert(temperature, convert) {
+    const input = parseFloat(temperature);
+    if (Number.isNaN(input)) {
+        return "";
+    }
+    const output = convert(input);
+    const rounded = Math.round(output * 1000) / 1000;
+    return rounded.toString();
+}
+
+function Calculator(props) {
+    const [temperature, setTemperature] = useState("");
+    const [scale, setScale] = useState("c");
+
+    const handleCelsiusChange = (temperature) => {
+        setTemperature(temperature);
+        setScale("c");
+    };
+
+    const handleFahrenheitChange = (temperature) => {
+        setTemperature(temperature);
+        setScale("f");
+    };
+
+    const celsius =
+        scale === "f" ? tryConvert(temperature, toCelsius) : temperature;
+    const fahrenheit =
+        scale === "c" ? tryConvert(temperature, toFahrenheit) : temperature;
+
+    return (
+        <div>
+            <TemperatureInput
+                scale="c"
+                temperature={celsius}
+                onTemperatureChange={handleCelsiusChange}
+            />
+            <TemperatureInput
+                scale="f"
+                temperature={fahrenheit}
+                onTemperatureChange={handleFahrenheitChange}
+            />
+            <BoilingVerdict celsius={parseFloat(celsius)} />
+        </div>
+    );
+}
+
+export default Calculator;
+```
+```js
+const scaleNames = {
+    c: "섭씨",
+    f: "화씨",
+};
+
+function TemperatureInput(props) {
+    const handleChange = (event) => {
+        props.onTemperatureChange(event.target.value);
+    };
+
+    return (
+        <fieldset>
+            <legend>
+                온도를 입력해주세요(단위:{scaleNames[props.scale]}):
+            </legend>
+            <input value={props.temperature} onChange={handleChange} />
+        </fieldset>
+    );
+}
+
+export default TemperatureInput;
+```
+### Shared State
+공유된 state를 의미
+```js
+function BoilingVerdict(props){
+    if (props.celsius >=100){
+      return <p> 물 끓음 </p>
+    }
+    return <p> 안끓음 </p>
+  }
+```
 # 9주차 05-04
 ## 10장
 ### 리스트와 키란?
@@ -24,17 +127,7 @@
 ### 제어 컴포넌트
 * 사용자가 입력한 값에 접근하고 제어할 수 있도록 해주는 컴포넌트
 
-## 12장
-### Shared State
-공유된 state를 의미
-```js
-function BoilingVerdict(props){
-    if (props.celsius >=100){
-      return <p> 물 끓음 </p>
-    }
-    return <p> 안끓음 </p>
-  }
-```
+
 # 8주차 04-27
 ## 이벤트 처리하기
 ### DOM, React
