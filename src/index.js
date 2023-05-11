@@ -13,10 +13,11 @@ import Accommodate from './chapter_07/Accommodate';
 import ConfirmButton from './chapter_08/ConfirmButton';
 import Toolbar from './chapter_09/Toolbar';
 import LandingPage from './chapter_09/LandingPage';
+import Calculator from './chapter_12/Calculator';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <LandingPage/>
+    <Calculator/>
   </React.StrictMode>
 );
 
