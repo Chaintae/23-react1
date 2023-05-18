@@ -14,10 +14,12 @@ import ConfirmButton from './chapter_08/ConfirmButton';
 import Toolbar from './chapter_09/Toolbar';
 import LandingPage from './chapter_09/LandingPage';
 import Calculator from './chapter_12/Calculator';
+import Card from './chapter_14/Card';
+import ProfileCard from './chapter_14/ProfileCard';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Calculator/>
+    <ProfileCard/>
   </React.StrictMode>
 );
 
